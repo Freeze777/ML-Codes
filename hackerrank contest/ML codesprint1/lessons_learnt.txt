@@ -1,0 +1,19 @@
+* Get some cloud computing service like Amazon EC2,Google cloud etc.(this makes sure my laptop is free from running whole 7 days)
+* Learn Apache Spark (highly scalable..!!)
+
+
+* Test the code on a smaller dataset before running it against full to see correctness (lost 18 hours on running against faulty code!!!)
+* Make sure the pickled objects are invariant across subsequent runs..!!! (Did a stupid shit which made me loose 18 hours)
+* Try to find the best approaches to deal with unfilled cells in dataframe. (tried mode,ffill,bfill,median etc.. but which one is best??)
+* Learn the importance of balanced datasets.
+* Learn how to deal with categorical variables and which model works better in these cases.
+* Try to read about all the classifiers in scikit-learn and get an idea where to use them.
+* Try to spend more time in the beginning thinking about how to make the runs faster and about the layout of the code shud be. Make utility snippets for tasks like splitting,balancing etc. Dont just blindly start trail and error (which wasted most of my time.)
+
+
+
+
+
+Other libraries suggested:
+* Xgboost :https://github.com/dmlc/xgboost/tree/master/python-package (installed)
+* graphlab

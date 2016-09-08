@@ -1,0 +1,3 @@
+**I ended up recommending challenges the user tried but had not solved, challenges in the user's subdomains and domains of interest. Was able to achieve 0.142, but couldn't go any further. It was implemented in Python btw.
+
+**I'm getting 0.144 score. I'm searching for the K nearest competitors for the hacker and then recommend the most popular challenges among these competitors.I think hybid approaches are needed here. For example recommending X challenges from the challenges that a user tried but didn't solve + Y challenges from the most popular challenges among his similar competitors and so on...
