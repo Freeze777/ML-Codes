@@ -9,8 +9,7 @@
 * Learn how to deal with categorical variables and which model works better in these cases.
 * Try to read about all the classifiers in scikit-learn and get an idea where to use them.
 * Try to spend more time in the beginning thinking about how to make the runs faster and about the layout of the code shud be. Make utility snippets for tasks like splitting,balancing etc. Dont just blindly start trail and error (which wasted most of my time.)
-
-
+* Try Naive baise classifiers too.!
 
 
 

@@ -1,0 +1,3 @@
+try polynomial feature for logistic reg.
+try decision tree classifier.
+trying boosted ensemble classifier
