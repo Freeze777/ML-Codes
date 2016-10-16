@@ -1,0 +1,6 @@
+https://www.hackerearth.com/iiit-b-data-science-challenge/
+
+1) Unzip the submission.zip file<br>
+2) make submission folder as pwd<br>
+3) read the REPORT.pdf for more detailed information<br>
+4) run th python scripts <br>

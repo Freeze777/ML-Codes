@@ -4,7 +4,7 @@
 # In[1]:
 
 import pandas as pd
-
+import xgboost as xgb
 
 # In[23]:
 
@@ -87,8 +87,11 @@ from sklearn.tree import DecisionTreeClassifier
 #model=LogisticRegression()
 #model=AdaBoostClassifier()
 #model=RandomForestClassifier();
-model=DecisionTreeClassifier()
+#model=DecisionTreeClassifier()
+model = xgb.XGBClassifier(max_depth=5, n_estimators=320, learning_rate=0.05)
 model.fit(titanic_train[features],titanic_train['Survived'])
+#predictions = model.predict(test_X)
+
 
 
 # In[77]:
@@ -139,7 +142,7 @@ submission = pd.DataFrame({
 
 # In[89]:
 
-submission.to_csv("kaggle.csv", index=False)
+submission.to_csv("submission.csv", index=False)
 
 
 # In[ ]:
