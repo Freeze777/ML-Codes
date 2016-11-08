@@ -3,6 +3,7 @@ git rm -r --cached *.pem
 git rm -r --cached *.pyc
 git rm -r --cached *.pkl
 git rm -r --cached *.csv
+git rm -r --cached *.tsv
 git rm -r --cached *.npy
 git rm -r --cached *.npz
 git rm -r --cached *.sidx
