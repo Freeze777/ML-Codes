@@ -7,10 +7,31 @@ import pandas as pd
 import xgboost as xgb
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
-
+from sklearn.linear_model import LogisticRegression
 # Load the data
 train_df = pd.read_csv('train.csv', header=0)
 test_df = pd.read_csv('test.csv', header=0)
+
+train_df['Cabin']=train_df['Cabin'].fillna("#")
+test_df['Cabin']=test_df['Cabin'].fillna("#")
+
+
+train_cabin=[]
+test_cabin=[]
+#print df_train.iterrows()
+for i,row in train_df.iterrows():
+    if(row['Cabin']!='#'):
+        train_cabin.append(row['Cabin'][0])
+    else:
+        train_cabin.append('#')
+for i,row in test_df.iterrows():
+    if(row['Cabin']!='#'):
+        test_cabin.append(row['Cabin'][0])
+    else:
+        test_cabin.append('#')
+train_df['Cabin']=train_cabin
+test_df['Cabin']=test_cabin
+
 
 # We'll impute missing values using the median for numeric columns and the most
 # common value for string columns.
@@ -25,8 +46,8 @@ class DataFrameImputer(TransformerMixin):
     def transform(self, X, y=None):
         return X.fillna(self.fill)
 
-feature_columns_to_use = ['Pclass','Sex','Age','Fare','Parch']
-nonnumeric_columns = ['Sex']
+feature_columns_to_use = ['Pclass','Sex','Cabin','Age','Fare','Parch']
+nonnumeric_columns = ['Sex','Cabin']
 
 # Join the features from train and test together before imputing missing values,
 # in case their distribution is slightly different
@@ -49,7 +70,11 @@ train_y = train_df['Survived']
 # You can experiment with many other options here, using the same .fit() and .predict()
 # methods; see http://scikit-learn.org
 # This example uses the current build of XGBoost, from https://github.com/dmlc/xgboost
-gbm = xgb.XGBClassifier(max_depth=5, n_estimators=320, learning_rate=0.1).fit(train_X, train_y)
+#gbm = xgb.XGBClassifier(max_depth=5, n_estimators=320, learning_rate=0.1).fit(train_X, train_y)
+#gbm=xgb.XGBClassifier(learning_rate =0.1,n_estimators=320,max_depth=5,min_child_weight=1,gamma=0,subsample=0.8,colsample_bytree=0.8,objective= 'binary:logistic',nthread=4,scale_pos_weight=1,seed=27)
+#gbm.fit(train_X, train_y)
+gbm=LogisticRegression()
+gbm.fit(train_X, train_y)
 predictions = gbm.predict(test_X)
 
 # Kaggle needs the submission to have a certain format;

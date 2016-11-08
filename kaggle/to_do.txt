@@ -1,0 +1,2 @@
+https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/
+https://www.kaggle.com/c/transfer-learning-on-stack-exchange-tags

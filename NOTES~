@@ -1,0 +1,2 @@
+##More parameters means we need more data. It may happen that we cant do that
+e.g: A model with many parameters require more data: observe that a full covariance matrix for an M-dimensional Gaussian will have M(M+1)/2 parameters to fit. With the number of parameters growing roughly as the square of the dimension, it may quickly become impossible to find a sufficient amount of data to make good inferences.
