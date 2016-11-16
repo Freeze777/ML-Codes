@@ -1,4 +1,6 @@
 import pickle
+import re
+import string
 
 def save_object(obj, filename):
     with open(filename, 'wb') as output:
@@ -24,3 +26,22 @@ def balance_data(df,col_name,label1,label2):
 	df=df.reindex(np.random.permutation(df.index))
 	return df
 
+def strip_punctuations(data):
+    replace_punctuation = string.maketrans(string.punctuation, ' '*len(string.punctuation))
+    text = data.translate(replace_punctuation)
+    text = re.sub(' +',' ',text)
+    return text
+
+def strip_html(data):
+    replace_punctuation = string.maketrans(string.punctuation, ' '*len(string.punctuation))
+    p = re.compile(r'<.*?>')
+    text = p.sub(' ', data).translate(replace_punctuation)
+    return text
+
+def stem_text(data):
+    stemmer = PorterStemmer()
+    tokens = nltk.word_tokenize(data)
+    stemmed = []
+    for item in tokens:
+        stemmed.append(stemmer.stem(item))
+    return " ".join(stemmed)
