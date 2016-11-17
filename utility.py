@@ -1,6 +1,23 @@
 import pickle
 import re
 import string
+import numpy as np
+from nltk.stem.porter import PorterStemmer
+import nltk
+import pandas as pd
+import numpy as np
+from sklearn.feature_extraction import DictVectorizer
+
+def encode_onehot(df, cols):
+    vec = DictVectorizer()
+
+    vec_data = pd.DataFrame(vec.fit_transform(df[cols].to_dict(outtype='records')).toarray())
+    vec_data.columns = vec.get_feature_names()
+    vec_data.index = df.index
+
+    df = df.drop(cols, axis=1)
+    df = df.join(vec_data)
+    return df
 
 def save_object(obj, filename):
     with open(filename, 'wb') as output:
